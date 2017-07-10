@@ -1,0 +1,8 @@
+# Little Grebe Server Setup Authors
+
+This project contains a series of scripts
+used to get a server setup with proper networking,
+kerberos installed, and openssh for the
+CTS-IT department at the University of Florida.
+
+Matthew J. McConnell (devmattm@gmail.com) Inventor
