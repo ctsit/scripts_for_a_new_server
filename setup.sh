@@ -1,3 +1,4 @@
+#VERSION 1.0.0
 #Script should be as root
 if [[ $EUID -ne 0 ]]; then
     echo "This script should not be run using sudo or as the root user"
