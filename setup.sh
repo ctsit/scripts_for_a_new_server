@@ -26,6 +26,9 @@ bash kerberos/add_authenticated_user.sh
 echo *******OPENSSH*******
 apt-get -y install openssh-server
 
+echo *******SHIBBOLETH******
+bash utils/shib_setup.sh
+
 shutdown -r +1 "Server will restart in 1 minute. Please save your work."
 echo To cancel, type 'shutdown -c'
 
