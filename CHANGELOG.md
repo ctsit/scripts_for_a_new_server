@@ -6,15 +6,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 Example
-## [0.0.x] 2017-04-26
+## [1.0.0] 2017-07-11
 ### Summary
- * This is a quick summary for people to understand what this release is about.
-
-### Fixed
- * Fixed broke thing 1 (DevMattm) 
+ * This is the first commit. It contains the scripts required to setup networking,
+   Kerberos, and ssh.
 
 ### Added
- * Added cool new feature (DevMattm) 
-
-### Changed
- * Changed something to make more awesome (DevMattm) 
+ * Added all the files for release 1.0.0(DevMattm) 
