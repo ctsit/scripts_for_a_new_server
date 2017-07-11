@@ -1,12 +1,13 @@
+working_dir=$1
 echo ******Copying network interfaces****
 echo ****Must be root user****
 echo resolvconf is needed for dns
 echo The install disk may need to be inserted for this step
 apt-get -y install resolvconf
 echo Edit the interfaces to match the correct server ip settings
-vim.tiny network/interfaces
+vim.tiny $working_dir/network/interfaces
 cp /etc/networks/interfaces /etc/networks/interfaces.bak
-cp network/interfaces /etc/network/interfaces
+cp $working_dir/network/interfaces /etc/network/interfaces
 chown root:root /etc/network/interfaces
 service networking restart
 
