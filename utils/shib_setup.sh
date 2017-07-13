@@ -4,7 +4,7 @@ urn_replace=_URN_
 shib_urn=urn:edu:ufl:prod:URN
 
 echo Installing Shibboleth...
-echo type the domain for this server - shib.yourdomain.ufl.edu, followed by enter
+echo type the domain for this server - yourdomain.ufl.edu, followed by enter
 read hostname
 
 #install shibboleth packages
