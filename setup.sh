@@ -19,7 +19,7 @@ bash network/setup.sh $working_dir
 echo Networking has been set up >> output/output.log
 
 echo *******APT-GET UPDATE*******
-cp /etc/apt/sources.list /etc/apt/sources.list.bak
+cp /etc/apt/sources.list /etc/apt/sources_`date +'%s'`.list.bak
 cat utils/sources.list>>/etc/apt/sources.list
 echo apt sources list has been updated >> output/output.log
 apt-get -y update

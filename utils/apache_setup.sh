@@ -33,7 +33,7 @@ service apache2 reload
 
 #Test if SSH seems to be working
 cd $script_dir/output/
-echo quit\n > quit.txt
+echo quit\n >> quit.txt
 openssl s_client -connect $host_name:443<quit.txt > ssl.txt
 grep -A 30 "Session" ssl.txt
 

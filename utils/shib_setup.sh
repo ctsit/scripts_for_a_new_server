@@ -23,7 +23,7 @@ mv sp-key.pem $hostname.pem
 mv sp-cert.pem $hostname.cert
 
 #Get Linux XML config file from Open Systems and configure it
-mv shibboleth2.xml shibboleth2.xml.bak
+mv shibboleth2.xml shibboleth2_`date +'%s'`.xml.bak
 wget http://open-systems.ufl.edu/files/linux.shibboleth2.xml -O shibboleth2.xml
 
 sed -i "s/$hostname_replace/$hostname/g" shibboleth2.xml
@@ -32,13 +32,13 @@ sed -i "s:/var/lib/run/shibd.sock:/var/run/shibboleth.shibd.sock:" shibboleth2.x
 
 #Update Apache to use shibboleth
 cd /etc/apache2/
-cp apache2.conf apache2.conf.bak
+cp apache2.conf apache2_`date +'%s'`.conf.bak
 echo >> apache2.conf
 echo \# Include Shibboleth >> apache2.conf
 echo LoadModule mod_shib /usr/lib/apache2/modules/mod_shib2.so >> apache2.conf
 
 cd sites-enabled
-cp default_ssl.conf defaul_ssl_noshib.conf.bak
+cp default_ssl.conf defaul_ssl_`date +'%s'`.conf.bak
 sed -i "/DocumentRoot/r $script_dir/utils/shib_apache_setup.txt" default_ssl.conf
 
 #Restart and test
