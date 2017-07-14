@@ -38,7 +38,7 @@ echo \# Include Shibboleth >> apache2.conf
 echo LoadModule mod_shib /usr/lib/apache2/modules/mod_shib2.so >> apache2.conf
 
 cd sites-enabled
-cp default_ssl.conf defaul_ssl_`date +'%s'`.conf.bak
+cp default-ssl.conf default-ssl_`date +'%s'`.conf.bak
 sed -i "/DocumentRoot/r $script_dir/utils/shib_apache_setup.txt" default_ssl.conf
 
 #Restart and test
