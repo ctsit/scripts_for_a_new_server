@@ -1,3 +1,10 @@
+#This script requires two arguments:
+#$1 is the directory of this project
+#$2 is the hostname of this server
+
+script_dir=$1
+hostname=$2
+
 echo This script will install apache2 with SSL enabled and a self-signed cert
 # Per https://www.digitalocean.com/community/tutorials/how-to-create-a-ssl-certificate-on-apache-for-debian-8
 
@@ -20,11 +27,15 @@ chmod 600 $cert_dir/*
 #Configure Apache to use SSL
 cd /etc/apache2/sites-enabled/
 sed -i '/ServerAdmin/ s/$/\n                 ServerName $host_name:443/' default-ssl.conf
-sed -i "s/SSLCerticateFile .*/SSLCertificateFile $cert_dir/$cert_name"
-sed -i "s/SSLCerticateKeyFile .*/SSLCertificateFile $cert_dir/$key_name"
+sed -i "s:SSLCertificateFile .*:SSLCertificateFile $cert_dir/$cert_name:"
+sed -i "s:SSLCertificateKeyFile .*:SSLCertificateFile $cert_dir/$key_name:"
 service apache2 reload
 
 #Test if SSH seems to be working
-echo quit\n >> quit.txt
+cd $script_dir/output/
+echo quit\n > quit.txt
 openssl s_client -connect $host_name:443<quit.txt > ssl.txt
-grep -A 30 ssl.txt
+grep -A 30 "Session" ssl.txt
+
+#clean up
+rm quit.txt
