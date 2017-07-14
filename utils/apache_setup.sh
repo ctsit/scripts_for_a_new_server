@@ -25,9 +25,9 @@ chmod 600 $cert_dir/*
 
 #Configure Apache to use SSL
 cd /etc/apache2/sites-enabled/
-sed -i '/ServerAdmin/ s/$/\n                 ServerName $hostname:443/' default-ssl.conf
-sed -i "s:SSLCertificateFile .*:SSLCertificateFile $cert_dir/$cert_name:" default-ssl.conf
-sed -i "s:SSLCertificateKeyFile .*:SSLCertificateFile $cert_dir/$key_name:" default-ssl.conf
+sed -i "/ServerAdmin/ s/$/\n                ServerName $hostname:443/" default-ssl.conf
+sed -i "s:SSLCertificateFile.*:SSLCertificateFile $cert_dir/$cert_name:" default-ssl.conf
+sed -i "s:SSLCertificateKeyFile.*:SSLCertificateKeyFile $cert_dir/$key_name:" default-ssl.conf
 service apache2 reload
 
 #Test if SSH seems to be working
