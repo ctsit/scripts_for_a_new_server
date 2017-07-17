@@ -25,6 +25,7 @@ chmod 600 $cert_dir/*
 
 #Configure Apache to use SSL
 cd /etc/apache2/sites-enabled/
+cp default-ssl.conf default-ssl`date +'%s'`.conf.bak
 sed --follow-symlinks -i "/ServerAdmin/ s/$/\n                ServerName $hostname:443/" default-ssl.conf
 sed --follow-symlinks -i "s:SSLCertificateFile.*:SSLCertificateFile $cert_dir/$cert_name:" default-ssl.conf
 sed --follow-symlinks -i "s:SSLCertificateKeyFile.*:SSLCertificateKeyFile $cert_dir/$key_name:" default-ssl.conf
