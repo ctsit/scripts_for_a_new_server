@@ -1,0 +1,13 @@
+<Location /secure>
+  AuthType shibboleth
+  ShibRequireSession On
+  require valid-user
+</Location>
+
+<Location />
+  AuthType shibboleth
+  ShibRequireSession Off
+  require valid-user
+  ShibUseHeaders On
+  require shibboleth
+</Location>
