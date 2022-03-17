@@ -1,4 +1,4 @@
-# little_grebe_server_setup
+# Scripts for a new server
 This project contains a set of scripts used by the CTS-IT team at the 
 University of Florida. It allows a server with a barebones Debian install
 to get up and going using Kerberos and SSH (with gatorlink authentication).
