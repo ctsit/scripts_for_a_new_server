@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #VERSION 1.0.0
 #Script should be as root
 if [[ $EUID -ne 0 ]]; then
